@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sudo cp ./.vimrc ~/
+sudo cp -r .vimrc ~/
+sudo rm -rf ~/.vim
 sudo cp ./.vim ~/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
