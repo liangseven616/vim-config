@@ -2,8 +2,8 @@
 
 sudo cp -r .vimrc ~/
 sudo rm -rf ~/.vim
-sudo cp ./.vim ~/
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+sudo cp -r .vim ~/.vim
+sudo url --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 mkdir ~/vim-config
 cd ~/vim_config
@@ -32,10 +32,12 @@ debian|ubuntu|devuan)
 	sudo apt install nodejs
 	sudo apt install npm 
 	sudo apt install snapd
+	sudo apt install yarn
 	;;
 centos|fedora|rhel)
 esac
+curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 sudo snap install ccls --classic
 sudo npm i -g bash-language-server
 
-vim -c "PlugInstall" -c "q" -c "q"
+sudo vim -c "PlugInstall" -c "q" -c "q"
