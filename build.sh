@@ -16,7 +16,8 @@ sudo make install
 
 cd .. && mkdir gtags && cd gtags
 wget http://tamacom.com/global/global-6.6.4.tar.gz
-7z x global**.tar.gz
+tar -xf global-6.6.4.tar.gz
+cd global-6.6.4
 ./configure --with-sqlite3   #gtags可以使用Sqlite3作为数据库，在编译时需要加这个参数
 make -j4     #四线程并行编译
 make check
