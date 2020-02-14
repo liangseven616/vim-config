@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo cp ./.vimrc ~/
-cp ./.vim ~/
+sudo cp ./.vim ~/
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 mkdir ~/vim-config
@@ -37,3 +37,4 @@ esac
 sudo snap install ccls --classic
 sudo npm i -g bash-language-server
 
+vim -c "PlugInstall" -c "q" -c "q"
