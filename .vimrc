@@ -6,61 +6,17 @@ set shiftwidth=4
 set nocompatible
 set backspace=indent,eol,start
 
+set cursorline 
+hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white 
+hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white
+
 colorscheme onedark
+
 let mapleader=","
 
 highlight Pmenu ctermbg=gray guibg=gray
 
 map <F2> :NERDTreeToggle<CR>
-" ###########################################
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
-inoremap { {}<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-inoremap < <><LEFT>
-
-function! RemovePairs()
-    let s:line = getline(".")
-    let s:previous_char = s:line[col(".")-1]
-
-    if index(["(","[","{"],s:previous_char) != -1
-        let l:original_pos = getpos(".")
-        execute "normal %"
-        let l:new_pos = getpos(".")
-        " only right (
-        if l:original_pos == l:new_pos
-            execute "normal! a\<BS>"
-            return
-        end
-
-        let l:line2 = getline(".")
-        if len(l:line2) == col(".")
-            execute "normal! v%xa"
-        else
-            execute "normal! v%xi"
-        end
-    else
-        execute "normal! a\<BS>"
-    end
-endfunction
-
-function! RemoveNextDoubleChar(char)
-    let l:line = getline(".")
-    let l:next_char = l:line[col(".")]
-
-    if a:char == l:next_char
-        execute "normal! l"
-    else
-        execute "normal! i" . a:char . ""
-    end
-endfunction
-
-inoremap <BS> <ESC>:call RemovePairs()<CR>a
-inoremap ) <ESC>:call RemoveNextDoubleChar(')')<CR>a
-inoremap ] <ESC>:call RemoveNextDoubleChar(']')<CR>a
-inoremap } <ESC>:call RemoveNextDoubleChar('}')<CR>a
-inoremap > <ESC>:call RemoveNextDoubleChar('>')<CR>a
 " ############################################
 " enable gtags module
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
@@ -223,6 +179,8 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -231,4 +189,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
 Plug 'kien/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'raimondi/delimitmate'
+Plug 'maciakl/vim-neatstatus'
 call plug#end()
