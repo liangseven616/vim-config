@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-sudo cp -r .vimrc ~/
+sudo cp -r .vimrc ~/.vimrc
 sudo rm -rf ~/.vim
 sudo cp -r .vim ~/.vim
-sudo url --compressed -o- -L https://yarnpkg.com/install.sh | bash
+sudo curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 mkdir ~/vim-config
 cd ~/vim_config
@@ -11,7 +11,7 @@ mkdir ctags && cd ctags
 git clone https://github.com/universal-ctags/ctags.git
 cd ctags
 ./autogen.sh
-./configure --prefix=/opt/software/universal-ctags  # 我的安装路径。你按自己的情况调整。
+./configure --prefix=/opt/software/universal-ctags 
 make -j4
 sudo make install
 
@@ -39,5 +39,4 @@ esac
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 sudo snap install ccls --classic
 sudo npm i -g bash-language-server
-
 sudo vim -c "PlugInstall" -c "q" -c "q"
