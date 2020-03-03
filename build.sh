@@ -5,8 +5,7 @@ sudo rm -rf ~/.vim
 sudo cp -r .vim ~/.vim
 sudo curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
-if [ ! -d "/ctags" ]; then
-  mkdir ctags && cd ctags
+if [ ! -d "./ctags" ]; then
   git clone https://github.com/universal-ctags/ctags.git
   cd ctags
   ./autogen.sh
@@ -15,8 +14,7 @@ if [ ! -d "/ctags" ]; then
   sudo make install
   cd ..
 fi
-if [ ! -d "/gtags" ]; then
-  mkdir gtags && cd gtags
+if [ ! -d "./gtags" ]; then
   wget http://tamacom.com/global/global-6.6.4.tar.gz
   tar -xf global-6.6.4.tar.gz
   cd global-6.6.4
