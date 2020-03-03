@@ -35,7 +35,7 @@ debian|ubuntu|devuan)
 	sudo apt install nodejs
 	sudo apt install npm 
 	sudo apt install yarn
-	sudo apt install clangd
+	sudo apt install clang-tools-8
 	;;
 centos|fedora|rhel)
 esac
