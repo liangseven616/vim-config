@@ -41,5 +41,5 @@ centos|fedora|rhel)
 esac
 curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 sudo npm i -g bash-language-server
-sudo vim -c "PlugInstall" -c "q" -c "q"
 sudo vim -c "CocInstall coc-clangd" -c "q" -c "q"
+sudo vim -c "PlugInstall" -c "q" -c "q"
