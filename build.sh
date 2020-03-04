@@ -3,7 +3,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 sudo cp -r .vimrc ~/.vimrc
 sudo rm -rf ~/.vim
 sudo cp -r .vim ~/.vim
-" ripgrep
+
 curl -LO https://github.com/BurntSushi/ripgrep/releases/download/0.10.0/ripgrep_0.10.0_amd64.deb
 sudo dpkg -i ripgrep_0.10.0_amd64.deb
 
