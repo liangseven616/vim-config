@@ -41,24 +41,9 @@ noremap <silent> <leader>t :GscopeFind t <C-R><C-W><cr>
 noremap <silent> <leader>i :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
 
 " ############################################
-" 运行时路径
-set runtimepath^=~/.vim/plugged/ctrlp.vim
-" 敲击<leader>+p键，进入搜索模式，这里为目录、MRU的混合模式
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_cmd = 'CtrlPMixed'
-" 根据通配符来忽略不需要搜索的文件
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
-" 本地工作目录的规则，可设置以下选项
-" 'c' - 设为当前文件所在的目录
-" 'r' - 如果最近的祖先有包含以下目录，则将该祖先目录设为工作目录：.git .hg .svn .bzr _darcs, 
-" 'a' - 和c选项类似，理解为仅在r不生效的情况下，才执行c选项
-let g:ctrlp_working_path_mode = 'ra'
-" 哪些文件、目录、链接不在搜索范围内
-let g:ctrlp_custom_ignore = {
-         \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-         \ 'file': '\v\.(exe|so|dll)$',
-         \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-         \ }
+" leaderf set 
+noremap <silent> <leader>p :LeaderfFunction <cr>
+noremap <silent> <Leader>l :<C-U><C-R>=printf("Leaderf! rg ")<CR>
 
 " ########################################################
 " 配置coc.nvim
@@ -128,10 +113,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
 augroup mygroup
   autocmd!
   " Setup formatexpr specified filetype(s).
@@ -191,7 +172,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/gutentags_plus'
-Plug 'kien/ctrlp.vim'
+Plug 'yggdroot/leaderf'
 Plug 'airblade/vim-gitgutter'
 Plug 'raimondi/delimitmate'
 Plug 'maciakl/vim-neatstatus'
